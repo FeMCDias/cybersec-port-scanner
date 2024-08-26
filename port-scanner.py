@@ -1,21 +1,11 @@
 import socket
+import json
 from tkinter import *
 from tkinter import messagebox
 import threading
 
-well_known_ports = {
-    20: "FTP Data",
-    21: "FTP Control",
-    22: "SSH",
-    23: "Telnet",
-    25: "SMTP",
-    53: "DNS",
-    80: "HTTP",
-    110: "POP3",
-    143: "IMAP",
-    443: "HTTPS",
-    3389: "RDP",
-}
+with open('well_known_ports.json', 'r') as f:
+    well_known_ports = json.load(f)
 
 def scan_ports(host, port_range):
     open_ports = []
@@ -25,7 +15,7 @@ def scan_ports(host, port_range):
             socket.setdefaulttimeout(1)
             result = sock.connect_ex((host, port))
             if result == 0:
-                service = well_known_ports.get(port, "Unknown Service")
+                service = well_known_ports.get(str(port), "Unknown Service")
                 open_ports.append((port, service))
             sock.close()
         except Exception as e:
