@@ -1,5 +1,8 @@
 # Port Scanner Application
 
+### Nome: Felipe Maluli de Carvalho Dias
+### Email Insper: felipemcd1@al.insper.edu.br
+
 ## Descrição
 
 Este projeto é uma aplicação de escaneamento de portas desenvolvida em Python, que permite aos usuários verificar portas abertas e serviços disponíveis em um host ou rede. A aplicação utiliza uma interface gráfica amigável para facilitar o uso.
